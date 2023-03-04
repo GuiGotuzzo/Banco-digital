@@ -1,5 +1,7 @@
 package metodos.emprestimos;
 
+import atributos.AtributosEmpresa;
+import atributos.AtributosPessoaFisica;
 import metodos.cadastro.Cadatro;
 
 import java.util.Scanner;
@@ -21,11 +23,7 @@ public class Emprestimos extends Cadatro implements EmprestimosInterface{
                 600.000 - 799.999 => 7,35 %
                 800.000 - 999.999 => 7,65 %
                 1.000.000+ => 8 %
-               
-               
                 """);
-
-
 
         boolean continuar = true;
 
@@ -33,6 +31,7 @@ public class Emprestimos extends Cadatro implements EmprestimosInterface{
             System.out.print("Valor do empréstimo que você dejesa: R$ ");
             double valor = scanner.nextDouble();
             double resultado = 0;
+            double resultado2 = 0;
 
             if (valor <= 49999) {
                 System.out.println("Você colocou um valor que não estava na tabela!");
@@ -40,184 +39,42 @@ public class Emprestimos extends Cadatro implements EmprestimosInterface{
             } else if (valor <= 99999) {
                 resultado = valor * 4.75;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: (por ano) ->" + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-                }
-                continuar = false;
+                resultado2 = valor + resultado;
             } else if (valor <= 249999) {
                 resultado = valor * 5.65;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: (por ano) ->" + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-                }
-                continuar = false;
+                resultado2 = valor + resultado;
             } else if (valor <= 399999) {
                 resultado = valor * 6.35;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
+                resultado2 = valor + resultado;
                 continuar = false;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: (por ano) ->" + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-                }
-
             } else if (valor <= 599999) {
                 resultado = valor * 6.75;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: (por ano) ->" + resultado);
-
-                        Cadatro cadatro = new Cadatro();
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-                }
-                continuar = false;
-
+                resultado2 = valor + resultado;
             } else if (valor <= 799999) {
                 resultado = valor * 7.35;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: (por ano) ->" + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-                }
-                continuar = false;
-
+                resultado2 = valor + resultado;
             } else if (valor <= 999999) {
                 resultado = valor * 7.65;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: (por ano) ->" + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-                }
-                continuar = false;
+                resultado2 = valor + resultado;
             } else {
                 resultado = valor * 8;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
+                resultado2 = valor + resultado;
 
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: (por ano) ->" + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-                }
                 continuar = false;
             }
+            System.out.println("Valor depositado: " + valor);
+            System.out.println("Valor final: (por ano) ->" + resultado2);
+
+            AtributosPessoaFisica pessoa = pessoaafisica.get(0);
+            pessoa.setSaldo(pessoa.getSaldo() - resultado2);
+            System.out.println();
+            continuar = false;
         }
     }
 
@@ -240,6 +97,8 @@ public class Emprestimos extends Cadatro implements EmprestimosInterface{
         System.out.print("Valor do empréstimo que você dejesa: R$ ");
         Double valor = scanner.nextDouble();
         double resultado = 0;
+        double resultado2 = 0;
+
         boolean continuar = true;
 
         while (continuar == true) {
@@ -249,191 +108,40 @@ public class Emprestimos extends Cadatro implements EmprestimosInterface{
             } else if (valor <= 249999) {
                 resultado = valor * 4.75;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: " + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-
-                    continuar = false;
-                }
-
+                resultado2 = valor + resultado;
             } else if (valor <= 399999) {
                 resultado = valor * 5.65;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: " + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-
-                    continuar = false;
-                }
-
+                resultado2 = valor + resultado;
             } else if (valor <= 599999) {
                 resultado = valor * 6.35;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: " + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-
-                    continuar = false;
-                }
+                resultado2 = valor + resultado;
             } else if (valor <= 799999) {
                 resultado = valor * 6.75;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: " + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-
-                    continuar = false;
-                }
-
+                resultado2 = valor + resultado;
             } else if (valor <= 999999) {
                 resultado = valor * 7.35;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: " + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-
-                    continuar = false;
-                }
+                resultado2 = valor + resultado;
             } else if (valor <= 1499999) {
                 resultado = valor * 7.65;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: " + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-
-                    continuar = false;
-                }
-
+                resultado2 = valor + resultado;
             } else {
                 resultado = valor * 8;
                 resultado = resultado / 100;
-                resultado = valor + resultado;
+                resultado2 = valor + resultado;
                 continuar = false;
-
-                System.out.print("Você tem certeza? 1 - Sim; 2 - Não -> ");
-                int escolha = scanner.nextInt();
-                boolean a = true;
-                while (a) {
-                    if (escolha == 1) {
-                        System.out.println();
-                        System.out.println("Valor investido: " + valor);
-                        System.out.println("Valor final: " + resultado);
-                        a = false;
-                    } else if (escolha == 2) {
-                        System.out.println();
-                        System.out.println("Você vai voltar a tela inicial!");
-                        a = false;
-                    } else {
-                        System.out.println();
-                        System.out.println("Ops... Você não digitou nenhuma das opções!");
-                        System.out.println();
-                    }
-
-                    continuar = false;
-                }
             }
+            System.out.println("Valor depositado: " + valor);
+            System.out.println("Valor final: " + resultado2);
+
+            AtributosEmpresa empresa = empresajuridica.get(0);
+            empresa.setSaldo(empresa.getSaldo() - resultado);
+            System.out.println();
+            continuar = false;
         }
     }
 }

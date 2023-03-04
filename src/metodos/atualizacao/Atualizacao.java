@@ -1,5 +1,6 @@
 package metodos.atualizacao;
 
+import atributos.AtributosEmpresa;
 import atributos.AtributosPessoaFisica;
 import metodos.cadastro.Cadatro;
 import metodos.exibirDados.ExibirDados;
@@ -16,13 +17,9 @@ public class Atualizacao extends Cadatro implements AtualizacaoInterface {
         System.out.println("======================================================================");
         System.out.println("Atualização de Usuários");
         System.out.println();
+        ExibirDados exibirDados = new ExibirDados();
+        exibirDados.exibirDadosDeUsuarios();
 
-        for(int i = 0; i < pessoaafisica.size(); i++){
-            AtributosPessoaFisica percorre = pessoaafisica.get(i);
-            System.out.println("[" + i + "]" + percorre.getNome() + " " + percorre.getSobrenome());
-        }
-        System.out.print("Digite seu id: ");
-        int id = scanner.nextInt();
         System.out.print("Nome: ");
         String nomeNovo = scannerString.nextLine();
         System.out.print("Sobrenome: ");
@@ -34,14 +31,14 @@ public class Atualizacao extends Cadatro implements AtualizacaoInterface {
 
         Date dataAtualizacao = new Date();
 
-        AtributosPessoaFisica pessoa = pessoaafisica.get(id);
+        AtributosPessoaFisica pessoa = pessoaafisica.get(0);
         pessoa.setNome(nomeNovo);
         pessoa.setSobrenome(sobrenomeNovo);
         pessoa.setCpf(cpfNovo);
         pessoa.setTelefone(novoTelefone);
         pessoa.setDatadocadastro(String.valueOf(dataAtualizacao));
 
-        ExibirDados exibirDados = new ExibirDados();
+        ExibirDados exibirDados1 = new ExibirDados();
         exibirDados.exibirDadosDeUsuarios();
     }
 
@@ -51,16 +48,25 @@ public class Atualizacao extends Cadatro implements AtualizacaoInterface {
         System.out.println("Atualização de Empresas/Pessoas júridicas");
         System.out.println();
 
-        for(int i = 0; i < empresajuridica.size(); i++){
-            AtributosPessoaFisica percorre = empresajuridica.get(i);
-            System.out.println("[" + i + "]" + percorre.getNome() + " " + percorre.getSobrenome());
-        }
-        System.out.print("Digite seu id: ");
-        int id = scanner.nextInt();
+        ExibirDados exibirDados = new ExibirDados();
+        exibirDados.exibirDadosDeEmpresas();
 
-        System.out.print("Nome: ");
-        String nomeString = scannerString.nextLine();
+        System.out.print("Nome da empresa: ");
+        String nomeNovo = scannerString.nextLine();
+        System.out.print("CNPJ: ");
+        String cnpjNovo = scannerString.nextLine();
         System.out.print("Telefone: ");
-        long novoTelefone = scanner.nextLong();
+        long telefoneNovo = scanner.nextLong();
+
+        Date dataAtualizacao = new Date();
+
+        AtributosEmpresa empresa = empresajuridica.get(0);
+        empresa.setNome(nomeNovo);
+        empresa.setCnpj(cnpjNovo);
+        empresa.setTelefone(telefoneNovo);
+        empresa.setDatadocadastro(String.valueOf(dataAtualizacao));
+
+        ExibirDados exibirDados2 = new ExibirDados();
+        exibirDados.exibirDadosDeEmpresas();
     }
 }

@@ -11,6 +11,7 @@ public class ExibirDados extends Cadatro implements ExibirDadosInterface{
         for(int i = 0; i < pessoaafisica.size(); i++){
             AtributosPessoaFisica percorre = pessoaafisica.get(i);
             System.out.println();
+            System.out.println();
             System.out.println("Nome: " + pessoaafisica.get(i).getNome() + " " + pessoaafisica.get(i).getSobrenome());
             System.out.println("CPF: " + pessoaafisica.get(i).getCpf());
             System.out.println("Telefone: " + pessoaafisica.get(i).getTelefone());

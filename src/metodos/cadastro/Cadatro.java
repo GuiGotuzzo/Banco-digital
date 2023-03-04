@@ -49,18 +49,7 @@ public class Cadatro implements CadastroInterface {
         System.out.println("======================================================================");
         System.out.println("Seus dados:");
         System.out.println();
-        /*
-        for (int i = 0; i < pessoaafisica.size(); i++) {
-            AtributosPessoaFisica percorre = pessoaafisica.get(i);
-            System.out.println("Nome: " + pessoaafisica.get(i).getNome() + pessoaafisica.get(i).getSobrenome());
-            System.out.println("CPF: " + pessoaafisica.get(i).getCpf());
-            System.out.println("Telefone: " + pessoaafisica.get(i).getTelefone());
-            System.out.println("Saldo: " + pessoaafisica.get(i).getSaldo());
 
-            System.out.println("Data do cadastro: " + pessoaafisica.get(i).getDatadecadastro());
-            System.out.println();
-        }
-         */
         ExibirDados exibirDados = new ExibirDados();
         exibirDados.exibirDadosDeUsuarios();
     }

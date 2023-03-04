@@ -8,6 +8,7 @@ public class AtributosPessoaFisica {
     protected String datadenasc;
     protected String datadocadastro;
     protected double saldo;
+    protected double saldoNovo;
 
     public String getDatadecadastro() {
         return datadocadastro;
@@ -63,5 +64,13 @@ public class AtributosPessoaFisica {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public double getSaldoNovo() {
+        return saldoNovo;
+    }
+
+    public void setSaldoNovo(double saldoNovo) {
+        this.saldoNovo = saldoNovo;
     }
 }

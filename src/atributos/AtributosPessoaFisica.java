@@ -4,7 +4,7 @@ public class AtributosPessoaFisica {
     protected String nome;
     protected String sobrenome;
     protected String cpf;
-    protected long telefone;
+    protected String telefone;
     protected String datadenasc;
     protected String datadocadastro;
     protected double saldo;
@@ -42,11 +42,11 @@ public class AtributosPessoaFisica {
         this.cpf = cpf;
     }
 
-    public long getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(long telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 

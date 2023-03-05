@@ -5,15 +5,18 @@ import atributos.AtributosPessoaFisica;
 import metodos.cadastro.Cadatro;
 import metodos.exibirDados.ExibirDados;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
 public class Atualizacao extends Cadatro implements AtualizacaoInterface {
     Scanner scanner = new Scanner(System.in);
-    Scanner scannerString = new Scanner(System.in);
+    boolean a = true;
+    boolean b = true;
 
     @Override
-    public void atualizacaoDeUsuarios() {
+    public void atualizacaoDeUsuarios() throws ParseException {
         System.out.println("======================================================================");
         System.out.println("Atualização de Usuários");
         System.out.println();
@@ -21,24 +24,46 @@ public class Atualizacao extends Cadatro implements AtualizacaoInterface {
         exibirDados.exibirDadosDeUsuarios();
 
         System.out.print("Nome: ");
-        String nomeNovo = scannerString.nextLine();
+        String nomeNovo = scanner.nextLine();
         System.out.print("Sobrenome: ");
-        String sobrenomeNovo = scannerString.nextLine();
-        System.out.print("Cpf: ");
-        String cpfNovo = scannerString.nextLine();
-        System.out.print("Telefone: ");
-        long novoTelefone = scanner.nextLong();
+        String sobrenomeNovo = scanner.nextLine();
+        System.out.print("Data de nascimento: ");
+        String dataDeNascNova = scanner.nextLine();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = formatter.parse(dataDeNascNova);
+        String cpfNovo = null;
+        while (a) {
+            System.out.print("Cpf: (11 números) -> ");
+            cpfNovo = scanner.nextLine();
+            if(cpfNovo.length() == 11){
+                a = false;
+            }else {
+                System.out.println();
+                System.out.println("O CPF precisa ter 11 números!");
+            }
+        }
+        String telefonenovo = null;
+        while (b) {
+            System.out.print("Telefone: (10 números ou 11 números) -> ");
+            telefonenovo = scanner.nextLine();
+            if(telefonenovo.length() == 10 || telefonenovo.length() == 11){
+                b = false;
+            }else {
+                System.out.println();
+                System.out.println("O Telefone precisa ter 10/11 números!");
+            }
+        }
 
         Date dataAtualizacao = new Date();
 
         AtributosPessoaFisica pessoa = pessoaafisica.get(0);
         pessoa.setNome(nomeNovo);
         pessoa.setSobrenome(sobrenomeNovo);
+        pessoa.setDatadenasc(dataDeNascNova);
         pessoa.setCpf(cpfNovo);
-        pessoa.setTelefone(novoTelefone);
+        pessoa.setTelefone(telefonenovo);
         pessoa.setDatadocadastro(String.valueOf(dataAtualizacao));
 
-        ExibirDados exibirDados1 = new ExibirDados();
         exibirDados.exibirDadosDeUsuarios();
     }
 
@@ -52,11 +77,29 @@ public class Atualizacao extends Cadatro implements AtualizacaoInterface {
         exibirDados.exibirDadosDeEmpresas();
 
         System.out.print("Nome da empresa: ");
-        String nomeNovo = scannerString.nextLine();
-        System.out.print("CNPJ: ");
-        String cnpjNovo = scannerString.nextLine();
-        System.out.print("Telefone: ");
-        long telefoneNovo = scanner.nextLong();
+        String nomeNovo = scanner.nextLine();
+        String cnpjNovo = null;
+        while (a) {
+            System.out.print("CNPJ: (14 números) -> ");
+            cnpjNovo = scanner.nextLine();
+            if(cnpjNovo.length() == 14){
+                a = false;
+            }else {
+                System.out.println();
+                System.out.println("O CNPJ precisa ter 14 números!");
+            }
+        }
+        String telefoneNovo = null;
+        while (b) {
+            System.out.print("Telefone: (10 números ou 11 números) -> ");
+            telefoneNovo = scanner.nextLine();
+            if(telefoneNovo.length() == 10 || telefoneNovo.length() == 11){
+                b = false;
+            }else {
+                System.out.println();
+                System.out.println("O Telefone precisa ter 10/11 números!");
+            }
+        }
 
         Date dataAtualizacao = new Date();
 
@@ -66,7 +109,6 @@ public class Atualizacao extends Cadatro implements AtualizacaoInterface {
         empresa.setTelefone(telefoneNovo);
         empresa.setDatadocadastro(String.valueOf(dataAtualizacao));
 
-        ExibirDados exibirDados2 = new ExibirDados();
         exibirDados.exibirDadosDeEmpresas();
     }
 }

@@ -1,6 +1,5 @@
 package com.company;
 
-import atributos.AtributosPessoaFisica;
 import metodos.atualizacao.Atualizacao;
 import metodos.cadastro.Cadatro;
 import metodos.emprestimos.Emprestimos;
@@ -10,14 +9,13 @@ import metodos.investimentos.Investimentos;
 import java.text.ParseException;
 import java.util.Scanner;
 
-import static metodos.cadastro.Cadatro.pessoaafisica;
-
 public class Main {
 
     public static void main(String[] args) throws ParseException{
         Scanner scanner = new Scanner(System.in);
-        Scanner scannerString = new Scanner(System.in);
+
         boolean c = true;
+
         boolean continuar = true;
 
         System.out.println("Bem-vindo ao nosso menu:");
@@ -46,18 +44,21 @@ public class Main {
                             Emprestimos emprestimos = new Emprestimos();
                             emprestimos.emprestimoParaUsuario();
                         } else if (escolhaCase1.equals("2")) {
-
-                           System.out.print("Você deseja investir: 1 - Poupança; 2 - Renda Fixa -> ");
-                           String opcao = scannerString.nextLine();
-                           Investimentos investimentos = new Investimentos();
-                               if (opcao.equals("1")) {
-                                   investimentos.poupanca("1");
-                               } else if (opcao.equals("2")) {
-                                   investimentos.rendaFixa("1");
-                               } else {
-                                   System.out.println();
-
-                               }
+                            boolean d = true;
+                            while (d) {
+                                System.out.print("Você deseja investir: 1 - Poupança; 2 - Renda Fixa -> ");
+                                String opcao = scanner.nextLine();
+                                Investimentos investimentos = new Investimentos();
+                                if (opcao.equals("1")) {
+                                    investimentos.poupanca("1");
+                                    d = false;
+                                } else if (opcao.equals("2")) {
+                                    investimentos.rendaFixa("1");
+                                    d = false;
+                                } else {
+                                    System.out.println();
+                                }
+                            }
                         } else if (escolhaCase1.equals("3")) {
                             Atualizacao atualicacao = new Atualizacao();
                             atualicacao.atualizacaoDeUsuarios();
@@ -85,18 +86,22 @@ public class Main {
                             Emprestimos emprestimos = new Emprestimos();
                             emprestimos.emprestimoParaEmpresas();
                         } else if (escolhaCase2.equals("2")) {
-                            System.out.print("Você deseja investir: 1 - Poupança; 2 - Renda Fixa -> ");
-                            String opcao = scannerString.nextLine();
-                            Investimentos investimentos = new Investimentos();
+                            boolean d = true;
+                            while (d) {
+                                System.out.print("Você deseja investir: 1 - Poupança; 2 - Renda Fixa -> ");
+                                String opcao = scanner.nextLine();
+                                Investimentos investimentos = new Investimentos();
                                 if (opcao.equals("1")) {
                                     investimentos.poupanca("2");
+                                    d = false;
                                 } else if (opcao.equals("2")) {
                                     investimentos.rendaFixa("2");
+                                    d = false;
                                 } else {
                                     System.out.println();
                                 }
-
-                        } else if (escolhaCase2.equals(3)) {
+                            }
+                        } else if (escolhaCase2.equals("3")) {
                             Atualizacao atualizacao = new Atualizacao();
                             atualizacao.atualizacaoDeEmpresas();
                         } else if (escolhaCase2.equals("4")) {

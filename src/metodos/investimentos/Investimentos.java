@@ -83,6 +83,8 @@ public class Investimentos extends Cadatro implements InvestimentosInterface{
                             AtributosPessoaFisica pessoa = pessoaafisica.get(0);
                             if (valor > pessoa.getSaldo()) {
                                 System.out.println();
+                                System.out.println("Você digitou um valor maior que seu saldo!");
+                                System.out.println();
                             } else {
                                 pessoa.setSaldo(pessoa.getSaldo() + resultado);
 
@@ -95,6 +97,8 @@ public class Investimentos extends Cadatro implements InvestimentosInterface{
                             AtributosEmpresa empresa = empresajuridica.get(0);
 
                             if (valor > empresa.getSaldo()) {
+                                System.out.println();
+                                System.out.println("Você digitou um valor maior que seu saldo!");
                                 System.out.println();
                             } else {
                                 empresa.setSaldo(empresa.getSaldo() + resultado);
@@ -110,7 +114,6 @@ public class Investimentos extends Cadatro implements InvestimentosInterface{
 
     @Override
     public void rendaFixa(String op) {
-        boolean continuar = true;
         while (continuar) {
             System.out.println();
             System.out.println("Renda fixa é um termo que se refere a qualquer tipo de investimento que possui regras de remuneração definidas no momento da aplicação no título. " +
@@ -133,6 +136,8 @@ public class Investimentos extends Cadatro implements InvestimentosInterface{
 
                 if (valor > pessoa.getSaldo()) {
                     System.out.println();
+                    System.out.println("Você digitou um valor maior que seu saldo!");
+                    System.out.println();
                 } else {
                     pessoa.setSaldo(pessoa.getSaldo() + resultado);
 
@@ -143,6 +148,7 @@ public class Investimentos extends Cadatro implements InvestimentosInterface{
                 AtributosEmpresa empresa = empresajuridica.get(0);
 
                 if (valor > empresa.getSaldo()) {
+                    System.out.println();
                     System.out.println("Você digitou um valor maior que seu saldo!");
                     System.out.println();
                 } else {

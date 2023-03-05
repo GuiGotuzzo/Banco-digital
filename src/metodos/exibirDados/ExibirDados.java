@@ -14,6 +14,7 @@ public class ExibirDados extends Cadatro implements ExibirDadosInterface{
             System.out.println();
             System.out.println("Nome: " + pessoaafisica.get(i).getNome() + " " + pessoaafisica.get(i).getSobrenome());
             System.out.println("CPF: " + pessoaafisica.get(i).getCpf());
+            System.out.println("Data de nascimento: " + pessoaafisica.get(i).getDatadenasc());
             System.out.println("Telefone: " + pessoaafisica.get(i).getTelefone());
             System.out.println("Saldo: " + pessoaafisica.get(i).getSaldo());
             System.out.println();
@@ -26,6 +27,8 @@ public class ExibirDados extends Cadatro implements ExibirDadosInterface{
     public void exibirDadosDeEmpresas() {
         for (int i = 0; i < empresajuridica.size(); i++) {
             AtributosEmpresa percorre = empresajuridica.get(i);
+            System.out.println();
+            System.out.println();
             System.out.println("Nome da empresa: " + empresajuridica.get(i).getNome());
             System.out.println("Cnpj: " + empresajuridica.get(i).getCnpj());
             System.out.println("Telefone: " + empresajuridica.get(i).getTelefone());

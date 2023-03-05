@@ -6,6 +6,7 @@ import metodos.cadastro.CadastroInterface;
 import metodos.exibirDados.ExibirDados;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class Cadatro implements CadastroInterface {
     static Scanner scannerString = new Scanner(System.in);
     static Scanner scanner = new Scanner(System.in);
     boolean a = true;
+    boolean b = true;
     @Override
     public void cadastropessoa() throws ParseException {
         System.out.println("Cadastre-se!!");
@@ -24,10 +26,32 @@ public class Cadatro implements CadastroInterface {
         String nomeCadastro = scannerString.nextLine();
         System.out.print("Sobrenome: ");
         String sobrenomeCadastro = scannerString.nextLine();
-        System.out.print("Cpf: ");
-        String cpfCadastro = scannerString.nextLine();
-        System.out.print("Telefone: ");
-        long telefoneCadastro = scanner.nextLong();
+        System.out.print("Data de nascimento: ");
+        String dataDeNascNova = scannerString.nextLine();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = formatter.parse(dataDeNascNova);
+        String cpfCadastro = null;
+        while (a) {
+            System.out.print("Cpf: (11 números) -> ");
+            cpfCadastro = scannerString.nextLine();
+            if(cpfCadastro.length() == 11){
+                a = false;
+            }else {
+                System.out.println();
+                System.out.println("O CPF precisa ter 11 números!");
+            }
+        }
+        String telefoneCadastro = null;
+        while (b) {
+            System.out.print("Telefone: (10 números ou 11 números) ->");
+            telefoneCadastro = scannerString.nextLine();
+            if(telefoneCadastro.length() == 10 || telefoneCadastro.length() == 11){
+                b = false;
+            }else {
+                System.out.println();
+                System.out.println("O Telefone precisa ter 10/11 números!");
+            }
+        }
         System.out.print("Seu saldo: R$" );
         double saldoCadastro = scanner.nextDouble();
         System.out.println();
@@ -37,6 +61,7 @@ public class Cadatro implements CadastroInterface {
         AtributosPessoaFisica pessoa = new AtributosPessoaFisica();
         pessoa.setNome(nomeCadastro);
         pessoa.setSobrenome(sobrenomeCadastro);
+        pessoa.setDatadenasc(dataDeNascNova);
         pessoa.setCpf(cpfCadastro);
         pessoa.setTelefone(telefoneCadastro);
         pessoa.setSaldo(saldoCadastro);
@@ -60,10 +85,28 @@ public class Cadatro implements CadastroInterface {
         System.out.println();
         System.out.print("Nome da empresa: ");
         String nomeCadastro = scannerString.nextLine();
-        System.out.print("CNPJ: ");
-        String cnpjCadastro = scannerString.nextLine();
-        System.out.print("Telefone: ");
-        long telefoneCadastro = scanner.nextLong();
+        String cnpjCadastro = null;
+        while (a) {
+            System.out.print("CNPJ: (14 números) -> ");
+            cnpjCadastro = scannerString.nextLine();
+            if(cnpjCadastro.length() == 14){
+                a = false;
+            }else {
+                System.out.println();
+                System.out.println("O CNPJ precisa ter 14 números!");
+            }
+        }
+        String telefoneCadastro = null;
+        while (b) {
+            System.out.print("Telefone: (10 números ou 11 números) ->");
+            telefoneCadastro = scannerString.nextLine();
+            if(telefoneCadastro.length() == 10 || telefoneCadastro.length() == 11){
+                b = false;
+            }else {
+                System.out.println();
+                System.out.println("O Telefone precisa ter 10/11 números!");
+            }
+        }
         System.out.print("Saldo: R$ ");
         double saldoCadastro = scanner.nextDouble();
         System.out.println();
